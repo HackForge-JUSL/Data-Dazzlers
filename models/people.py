@@ -13,7 +13,7 @@ class people_model():
     
     """
 
-    def __init__(self,model_path,region,conf=0.85):
+    def __init__(self,model_path,region,conf=0.45):
         """
         basic inti function
         """
@@ -70,9 +70,11 @@ class people_model():
                 center=[(bb[0]+bb[2])//2,(bb[1]+bb[3])//2]
 
                 if(self.in_region(center)):
-                    bb_boxes.append((True,bb))
+                    bb_boxes.append(bb)
 
-        if not len(bb_boxes):
-            bb_boxes.append((False,[]))
-        
-        return bb_boxes
+        if(len(bb_boxes)):
+            found=True
+        else:
+            found=False
+        return (found,bb_boxes)
+
