@@ -1,6 +1,4 @@
 from ultralytics import YOLO
-import cv2
-import cvzone
 
 class smoking_detection():
     def __init__(self,model_path,conf=0.85):

@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 
-class no_vehicle_zone():
+class vehicle_detection():
     """
     this class will be used to detect if vehicle are in 
     no parking zone.

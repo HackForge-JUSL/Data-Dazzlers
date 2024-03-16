@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import cv2
 
-class people_model():
+class people_detection():
     """
     this class will be used to detect if people are in 
     no people zone.
