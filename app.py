@@ -1,5 +1,5 @@
 import cv2
-
+import numpy as np
 from flask import Flask, render_template, Response
 import cv2
 
@@ -43,21 +43,24 @@ def process_frames(camid,region,flag_people=False,flag_vehicle=False,flag_fire=F
         if not ret:
             break
 
-        frame=cv2.resize(frame,(300,400))
+        frame=cv2.resize(frame,(150,200))
+        frame=cv2.polylines(frame,[np.array(region).reshape(-1,1,2)],True,(0,0,255),1)
 
-        found_fire,bb_box_fire=model_fire.process(frame,flag=flag_fire)
+        """found_fire,bb_box_fire=model_fire.process(frame,flag=flag_fire)
         if found_fire:
             for box in bb_box_fire:
                 x1,y1,x2,y2=box
-                cv2.rectangle(frame,(x1,y1),(x2,y2),(255,0,255),2)
+                cv2.rectangle(frame,(x1,y1),(x2,y2),(255,0,255),2)"""
 
+        #print(flag_people)
         found_people,bb_box_people=model_people.process(frame,flag=flag_people,region=region)
+        ##print(found_people,bb_box_people)
         if found_people:
             for box in bb_box_people:
                 x1,y1,x2,y2=box
                 cv2.rectangle(frame,(x1,y1),(x2,y2),(255,0,255),2)
 
-        found_smoke,bb_box_smoke=model_smoke.process(frame,flag=flag_smoke)
+        """found_smoke,bb_box_smoke=model_smoke.process(frame,flag=flag_smoke)
         if found_smoke:
             for box in bb_box_smoke:
                 x1,y1,x2,y2=box
@@ -67,7 +70,7 @@ def process_frames(camid,region,flag_people=False,flag_vehicle=False,flag_fire=F
         if found_vehicle:
             for box in bb_box_vehicle:
                 x1,y1,x2,y2=box
-                cv2.rectangle(frame,(x1,y1),(x2,y2),(255,0,255),2)
+                cv2.rectangle(frame,(x1,y1),(x2,y2),(255,0,255),2)"""
 
 
         _, buffer = cv2.imencode('.jpg', frame)
@@ -81,7 +84,7 @@ def index():
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(process_frames(0,region_default,flag_people=True), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(process_frames(camid=0,region=region_default,flag_people=True), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == "__main__":
     app.run(debug=True)
