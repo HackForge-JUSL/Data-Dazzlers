@@ -87,7 +87,7 @@ def index():
 @app.route('/video_feed')
 def video_feed():
     return Response(process_frames(camid='C:\My_Stuff\AA_Studio\Data Dazzlers\Data-Dazzlers\model_testing\\fire_video_input.mp4',
-                                   region=region_default,flag_fire=True), mimetype='multipart/x-mixed-replace; boundary=frame')
+    region=region_default,flag_fire=True), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == "__main__":
     app.run(debug=True)
