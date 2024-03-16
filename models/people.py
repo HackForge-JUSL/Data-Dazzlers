@@ -10,7 +10,7 @@ class people_model():
     model_path: path to model
     region: list containg regoin coordinates in 
             [(x1,y1),(x2,y2)] format
-    conf: minimum confidence to consider 
+    conf: minimum confidence to consider detection 
     
     """
 
@@ -40,7 +40,7 @@ class people_model():
         results=self.model(img,verbose=False)
 
         for box in results[0].boxes:
-            if (int(box.cls[0])==0 and float(box.conf[0])>0.75):
+            if (int(box.cls[0])==0 and float(box.conf[0])>self.conf):
                 bb=list(map(int,box.xyxy[0]))
                 center=[(bb[0]+bb[2])//2,(bb[1]+bb[3])//2]
 
