@@ -8,8 +8,7 @@ class no_vehicle_zone():
 
     Args:
     model_path: path to model
-    region: list containg regoin coordinates in 
-            [(x1,y1),(x2,y2)] format
+    region: list containg regoin coordinates.
     conf: minimum confidence to consider detection
 
 
@@ -24,10 +23,58 @@ class no_vehicle_zone():
         self.region=region
         self.conf=conf
 
-    def in_region(self, point, region):
+    def in_region(self, point):
         """
-        function to check if the point is in region
+        this function checks if the given point is in the region
         """
         x, y = point
-        x1, y1, x2, y2 = region
-        return x1 <= x <= x2 and y1 <= y <= y2
+        # Extracting the region points
+        x1, y1 = self.region[0]
+        x2, y2 = self.region[1]
+        x3, y3 = self.region[2]
+        x4, y4 = self.region[3]
+
+        # Calculating vectors from point to vertices of the region
+        vec1 = (x2 - x1, y2 - y1)
+        vec2 = (x3 - x2, y3 - y2)
+        vec3 = (x4 - x3, y4 - y3)
+        vec4 = (x1 - x4, y1 - y4)
+
+        # Calculating vectors from point to edges of the region
+        edge1 = (x - x1, y - y1)
+        edge2 = (x - x2, y - y2)
+        edge3 = (x - x3, y - y3)
+        edge4 = (x - x4, y - y4)
+
+        # Checking if the point is on the correct side of all edges
+        cross1 = vec1[0] * edge1[1] - vec1[1] * edge1[0]
+        cross2 = vec2[0] * edge2[1] - vec2[1] * edge2[0]
+        cross3 = vec3[0] * edge3[1] - vec3[1] * edge3[0]
+        cross4 = vec4[0] * edge4[1] - vec4[1] * edge4[0]
+
+        # If all cross products have the same sign, the point is inside the region
+        return ((cross1 >= 0 and cross2 >= 0 and cross3 >= 0 and cross4 >= 0) or 
+               (cross1 <= 0 and cross2 <= 0 and cross3 <= 0 and cross4 <= 0))
+    
+    def process(self,img):
+
+        """
+        this function processes the cv2 frame and returns the
+        bounding boxes
+        """
+        bb_boxes=[]
+        results=self.model(img,verbose=False)
+
+        for box in results[0].boxes:
+            if ((int(box.cls[0])==2 or int(box.cls[0]==3)) and float(box.conf[0])>0.75):
+                bb=list(map(int,box.xyxy[0]))
+                center=[(bb[0]+bb[2])//2,(bb[1]+bb[3])//2]
+
+                if(self.in_region(center,self.region)):
+                    bb_boxes.append((True,bb))
+
+        if not len(bb_boxes):
+            bb_boxes.append((False,[]))
+        
+        return bb_boxes
+
