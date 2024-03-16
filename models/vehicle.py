@@ -56,12 +56,14 @@ class vehicle_detection():
         return ((cross1 >= 0 and cross2 >= 0 and cross3 >= 0 and cross4 >= 0) or 
                (cross1 <= 0 and cross2 <= 0 and cross3 <= 0 and cross4 <= 0))
     
-    def process(self,img):
-
+    def process(self,img,flag=True):
         """
         this function processes the cv2 frame and returns the
         bounding boxes
         """
+        if not flag:
+            return (False,[])
+        
         bb_boxes=[]
         results=self.model(img,verbose=False)
 
