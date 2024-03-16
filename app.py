@@ -1,5 +1,10 @@
 import cv2
 
+from flask import Flask, render_template, Response
+import cv2
+
+app = Flask(__name__)
+
 
 from models.fire import fire_detection
 from models.people import people_detection
@@ -38,6 +43,8 @@ def process_frames(camid,region,flag_people=False,flag_vehicle=False,flag_fire=F
         if not ret:
             break
 
+        frame=cv2.resize(frame,(300,400))
+
         found_fire,bb_box_fire=model_fire.process(frame,flag=flag_fire)
         if found_fire:
             for box in bb_box_fire:
@@ -67,7 +74,15 @@ def process_frames(camid,region,flag_people=False,flag_vehicle=False,flag_fire=F
         frame_bytes = buffer.tobytes()
         yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
         
-if __name__=="__main__":
-    print("good run")
-    
+
+@app.route('/')
+def index():
+    return render_template('dash.html')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(process_frames(0,region_default,flag_people=True), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
