@@ -13,12 +13,11 @@ class people_detection():
     
     """
 
-    def __init__(self,model_path,region,conf=0.45):
+    def __init__(self,model_path,conf=0.45):
         """
         basic inti function
         """
         self.model=YOLO(model_path,verbose=False)
-        self.region=region
         self.conf=conf
 
     def in_region(self, point):
@@ -55,11 +54,12 @@ class people_detection():
                (cross1 <= 0 and cross2 <= 0 and cross3 <= 0 and cross4 <= 0))
 
     
-    def process(self,img,flag=True):
+    def process(self,img,region,flag=True):
         """
         this function processes the cv2 frame and returns the
         bounding boxes
         """
+        self.region=region
         if not flag:
             return (False,[])
 
