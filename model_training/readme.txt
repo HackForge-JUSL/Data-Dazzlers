@@ -1,0 +1,2 @@
+The fire detection model was trained on google collab and fire_train.ipynb is a copy of that collab file.
+The dataset was taken from 'https://www.kaggle.com/datasets/antrosafin/fire-dataset-in-yolo-format'.
