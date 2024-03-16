@@ -1,12 +1,4 @@
 from ultralytics import YOLO
-import cv2
-import math
-import cvzone
-
-#cap = cv2.VideoCapture(0)
-#model = YOLO('fire.pt')
-
-#classname = ['fire']
 
 class fire_detection():
     def __init__(self,model_path,conf=0.85):
