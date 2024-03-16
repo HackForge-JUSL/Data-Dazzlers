@@ -19,7 +19,7 @@ class fire_detection():
 
         for box in result[0].boxes:
             if(float(box.conf[0])>self.confidence):
-                bb=list(map(int,box,xyxy[0]))
+                bb=list(map(int,box.xyxy[0]))
                 bb_boxes.append(bb)
 
         if(len(bb_boxes)):
