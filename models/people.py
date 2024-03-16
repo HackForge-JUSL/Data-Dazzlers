@@ -69,7 +69,7 @@ class people_detection():
         for box in results[0].boxes:
             if (int(box.cls[0])==0 and float(box.conf[0])>self.conf):
                 bb=list(map(int,box.xyxy[0]))
-                print(bb)
+                ##print(bb)
                 center=[(bb[0]+bb[2])//2,(bb[1]+bb[3])//2]
 
                 if(self.in_region(center)):
