@@ -5,7 +5,9 @@ class fire_detection():
         self.model = YOLO(model_path,verbose=False)
         self.confidence = conf
 
-    def process(self,img):
+    def process(self,img,flag=True):
+        if not flag:
+            return (False,[])
         bb_boxes=[]
         result=self.model(img,verbose=False)
 
