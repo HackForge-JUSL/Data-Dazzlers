@@ -33,8 +33,8 @@ def process_frames(camid,region,flag_people=False,flag_vehicle=False,flag_fire=F
     returns: image object
 
     """
-    if  (len(camid)==1):
-        camid=int(camid)
+    ##naya121004if  (len(camid)==1):
+    ##    camid=int(camid)
     
     cap=cv2.VideoCapture(camid)
     ret=True
