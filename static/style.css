@@ -1,0 +1,129 @@
+/* External CSS for SafeCampuAI website */
+
+/* Customize navbar background color */
+/* style.css */
+
+body {
+  
+    background-image:url(/images/background1.webp)
+}
+
+.navbar {
+    background-color: #09253d !important;
+}
+
+/* Style modal title */
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Style form input fields */
+.form-control {
+    border-radius: 20px !important;
+}
+
+/* Style form select dropdown */
+.select {
+    border-radius: 20px !
+}
+
+/*
+    .form-group,
+    label,
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+        font-family: 'Roboto', sans-serif;
+    }
+*/
+
+
+  
+  .page-title {
+    color: #007bff; /* Heading color */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .form-group label {
+    color: #fbf5f5; /* Form label color */
+    font-size: larger;
+  }
+  .form-control {
+    border-color: #ced4da; /* Form input border color */
+  }
+  .form-control:focus {
+    border-color: #007bff; /* Form input border color on focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Form input focus effect */
+  }
+
+  
+  .text-center {
+    color: rgb(247, 247, 247); /* Change to your desired color */
+    /* Other existing styles */
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+
+/* Submit button style */
+.btn {
+  background-color: rgb(18, 109, 112); /* Button color */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Add padding to the button */
+  font-weight: bolder;
+  width: 20;
+  color: #fff; /* Text color */
+}
+
+.btn:hover {
+  background-color: rgb(227, 255, 255); /* Darker color on hover */
+  color: #000; /* Text color on hover */
+}
+
+
+
+
+
+
+
+/*Modal css*/
+/* Style modal header */
+.modal-header {
+  background-color: #007bff; /* Header background color */
+  color: #110f0f; /* Header text color */
+}
+
+/* Style modal body */
+.modal-body {
+  background-color: #000000; /* Body background color */
+  color: #000000; /* Body text color */
+}
+
+/* Style modal buttons */
+.modal-footer .btn-primary {
+  background-color: #03192f; /* Button background color */
+  border-color: #00172f; /* Button border color */
+  color: #151414; /* Button text color */
+}
+
+/* Hover effect for modal buttons */
+.modal-footer .btn-primary:hover {
+  background-color: #021325; /* Button background color on hover */
+  border-color: #031a32; /* Button border color on hover */
+}
+
+/* Style form input fields in the login modal */
+#loginModal .form-control {
+  color: #000000; /* Black font color */
+}
+
+
+
