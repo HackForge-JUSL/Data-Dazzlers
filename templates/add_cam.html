@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Login page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: burlywood;
+        }
+
+        .container {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/get_cam_det" id="cam_det_form" method="POST">
+            <div class="form-group">
+                <label for="camid"> Camera Id:</label>
+                <input type="test" class="form-control" id="camid" name="camid" >
+            </div>
+            <div class="form-group">
+                <label for="people">People Detection:</label>
+                <input type="checkbox" id="people" name="people">
+            </div>
+            <div class="form-group">
+                <label for="vehicle">Vehicle Detection:</label>
+                <input type="checkbox" id="vehicle" name="vehicle">
+            </div>
+            <div class="form-group">
+                <label for="fire">Fire Detection:</label>
+                <input type="checkbox" id="fire" name="fire">
+            </div>
+            <div class="form-group">
+                <label for="smoking">Smoking Detection:</label>
+                <input type="checkbox" id="smoking" name="smoking">
+            </div>
+            <div class="form-group">
+                <label for="region"> Region:</label>
+                <input type="test" class="form-control" id="region" name="region" >
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imG

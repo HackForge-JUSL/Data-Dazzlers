@@ -5,6 +5,7 @@ import cv2
 
 app = Flask(__name__)
 
+cameras={}
 
 from models.fire import fire_detection
 from models.people import people_detection
@@ -84,6 +85,10 @@ def process_frames(camid,region,flag_people=False,flag_vehicle=False,flag_fire=F
 def index():
     return render_template('index.html')
 
+@app.route('/dash')
+def dash():
+    return render_template('dash.html')
+
 @app.route('/login')
 def login():
     return render_template('login.html')
@@ -96,13 +101,13 @@ def login_get():
             userid = request.form['userid']
             password = request.form['password']
     if(userid=="abc" and password=="123"):
-        return render_template("dash.html")
+        return redirect("/dash")
     else:
-        redirect("/")
+        return redirect("/")
     
 
 @app.route('/complain_get', methods=['GET','POST'])
-def add_camera():
+def get_complain():
     if (request.method == 'POST'):
         fullName = request.form['fullName']
         email = request.form['email']
@@ -114,12 +119,42 @@ def add_camera():
     return redirect('/')
 
 
+@app.route('/add_cam_page')
+def add_cam_page():
+    return render_template('add_cam.html')
+
+
+@app.route('/get_cam_det', methods=['GET','POST'])
+def add_camera():
+    if (request.method== 'POST'):
+        camid = request.form['camid']
+        people_bool = 'people' in request.form
+        vehicle_bool = 'vehicle' in request.form
+        fire_bool = 'fire' in request.form
+        smoking_bool = 'smoking' in request.form
+        region_str=request.form['region']
+
+        x1,y1,x2,y2,x3,y3,x4,y4=region_str.strip().split(',')
+
+        region=[[x1,y1],[x2,y2],[x3,y3],[x4,y4]]
+        cameras[camid]= {
+            "people_bool" : people_bool,
+            "vehicle_bool":vehicle_bool,
+            "fire_bool":fire_bool,
+            "smoking_bool":smoking_bool,
+            "region":region
+        }
+
+    return redirect('/dash')
 
 
 @app.route('/video_feed')
 def video_feed():
     return Response(process_frames(camid='C:\My_Stuff\AA_Studio\Data Dazzlers\Data-Dazzlers\model_testing\\fire_video_input.mp4',
     region=region_default,flag_fire=True), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
