@@ -84,15 +84,19 @@ def process_frames(camid,region,flag_people=False,flag_vehicle=False,flag_fire=F
 def index():
     return render_template('index.html')
 
-
-@app.route("/login_get",methods=["GET","POST"])
+@app.route('/login')
 def login():
+    return render_template('login.html')
+
+
+@app.route('/login_get',methods=["GET","POST"])
+def login_get():
     print("inlogin")
     if (request.method == 'POST'):
             userid = request.form['userid']
-            password = request.form['pass']
+            password = request.form['password']
     if(userid=="abc" and password=="123"):
-        render_template("dash.html")
+        return render_template("dash.html")
     else:
         redirect("/")
     

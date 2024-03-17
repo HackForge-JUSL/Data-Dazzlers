@@ -47,55 +47,15 @@
         </h4>
       </ul>
       <div class="mx-4 ps-5">
-        <form class="form-inline"></form>
-        <button class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal" type="submit">Login</button>
+        <form class="form-inline" action="/login">
+            <button type="submit" class="btn btn-outline-light">Login</button>
         </form>
-      </div>
+    </div>
     </div>
     </div>
   </nav>
 
   <!--NavBar ended-->
-
-
-  <!--Login Modal started-->
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Administrative Login</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-          <form action="/login_get" id="login_form" method="POST">
-            <div class="form-group">
-              <label class="modalText" for="userid">User Id</label>
-              <input type="email" class="form-control" id="userid" name="userid" aria-describedby="emailHelp">
-              <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
-            </div>
-            <div class="form-group">
-              <label class="modalText" for="pass">Password</label>
-              <input type="password" class="form-control" id="pass" name="pass">
-            </div>
-
-            <input class="btn" data-toggle="modal" data-target="#loginModal" type="submit" style="border-radius: 10px;">Submit</input>
-
-          </form>
-
-
-        </div>
-        <!--<div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>-->
-      </div>
-    </div>
-  </div>
-  <!--Login Modal ended-->
-
 
   <h1 class="landingHeader">CamBud</h1>
 
