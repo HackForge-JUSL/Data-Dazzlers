@@ -82,7 +82,7 @@ def process_frames(camid,region,flag_people=False,flag_vehicle=False,flag_fire=F
 
 @app.route('/')
 def index():
-    return render_template('dash.html')
+    return render_template('index.html')
 
 @app.route('/video_feed')
 def video_feed():

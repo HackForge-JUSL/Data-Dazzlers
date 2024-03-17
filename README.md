@@ -20,4 +20,4 @@ root
 - - parking.py: Python script containing code for parking detection model.
 - - people.py: Python script containing code for people detection model.
 - requirements.txt
-- - File listing all Python dependencies required for the project
+- - File listing all Python dependencies required.
