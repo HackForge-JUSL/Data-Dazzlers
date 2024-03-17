@@ -84,9 +84,21 @@ def process_frames(camid,region,flag_people=False,flag_vehicle=False,flag_fire=F
 def index():
     return render_template('index.html')
 
+
+@app.route("/login_get",methods=["GET","POST"])
+def login():
+    print("inlogin")
+    if (request.method == 'POST'):
+            userid = request.form['userid']
+            password = request.form['pass']
+    if(userid=="abc" and password=="123"):
+        render_template("dash.html")
+    else:
+        redirect("/")
+    
+
 @app.route('/complain_get', methods=['GET','POST'])
 def add_camera():
-    print("in function")
     if (request.method == 'POST'):
         fullName = request.form['fullName']
         email = request.form['email']
