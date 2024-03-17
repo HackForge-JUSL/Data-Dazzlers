@@ -1,90 +1,154 @@
+<!--Updated Landing page or UI-->
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/style.css">
-    <title>SafeCampuAI-A tool for your safe campus</title>
-  </head>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <title>SafeCampuAI-A tool for your safe campus</title>
+</head>
 
 
-  <body>
+<body>
+
+  <!--NavBar started-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">SafeCampusAI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav justify-content-center ml-auto">
+        <h4>
+          <li class="nav-item active px-2 display-4">
+            <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </h4>
+        <h4>
+          <li class="nav-item active px-2 display-4">
+            <a class="nav-link" href="#">Contact Us <span class="sr-only">(current)</span></a>
+          </li>
+        </h4>
+        <h4>
+          <li class="nav-item px-2 display-4">
+            <a class="nav-link" href="#">UserGuide</a>
+          </li>
+        </h4>
+      </ul>
+      <div class="mx-4 ps-5">
+        <form class="form-inline"></form>
+        <button class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+    </div>
+  </nav>
+
+  <!--NavBar ended-->
 
 
-                        <!--NavBar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">SafeCampusAI</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Contact Us <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">User Guide</a>
-            </li>
-           
-            
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-outline-success my-2 my-sm-0"  data-toggle="modal" data-target="#loginModal" type="submit">Login</button>
+  <!--Login Modal started-->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Administrative Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form>
+            <div class="form-group">
+              <label class="modalText" for="exampleInputEmail1">User Id</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+            </div>
+            <div class="form-group">
+              <label class="modalText" for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+
+            <button class="btn" data-toggle="modal" data-target="#loginModal" type="submit" style="border-radius: 10px;">Submit</button>
+
+          </form>
+
+
+        </div>
+        <!--<div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>-->
+      </div>
+    </div>
+  </div>
+  <!--Login Modal ended-->
+
+
+  <h1 class="landingHeader">SafeCampusAI</h1>
+
+  <!--Form Part started -->
+  <section id="formPart">
+    <div class="container my-5">
+      <h1 class="text-center mb-4"><span class="formHeader">Raise Your Complain</span></h1>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form>
+            <div class="form-group">
+              <label for="fullName" class="labelFont">Full Name</label>
+              <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+              <label for="email" class="labelFont">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1" class="labelFont">Select the alert!</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Report an Alert</option>
+                <option>Normal Complaint</option>
+                <option>Harassment reporting</option>
+
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1" class="labelFont">Elaborate your Concern-</label>
+              <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"
+                placeholder="Share your Concern"></textarea>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupFileAddon01">Upload file</span>
+              </div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                  aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">Upload Supporting file</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit</button>
           </form>
         </div>
-      </nav>
-    
-                    <!--Form Part -->
-                    <div class="container mt-5">
-                        <h1 class="text-center mb-4">Raise Your Complain</h1>
-                        <div class="row justify-content-center">
-                          <div class="col-md-6">
-                            <form>
-                              <div class="form-group">
-                                <label for="fullName">Full Name</label>
-                                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
-                              </div>
-                              <div class="form-group">
-                                <label for="email">Email address</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                              </div>
-                              <div class="form-group">
-                                <label for="exampleFormControlSelect1">Select the alert!</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>Report an Alert</option>
-                                  <option>Normal Complaint</option>
-                                  <option>Harassment reporting</option>
-                
-                                </select>
-                              </div>
-                              <div class="form-group">
-                                  <label for="exampleFormControlTextarea1">Elaborate your Concern-</label>
-                                  <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" placeholder="Share your Concern"></textarea>
-                                </div>
-                
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text" id="inputGroupFileAddon01">Upload file</span>
-                                    </div>
-                                    <div class="custom-file">
-                                      <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                      <label class="custom-file-label" for="inputGroupFile01">Upload Supporting file</label>
-                                    </div>
-                                  </div>
-                         
-                              <button type="submit" class="btn btn-success">Submit</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Form Part ended-->
 
 
 
@@ -93,12 +157,17 @@
 
 
 
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
 </html>

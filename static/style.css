@@ -1,18 +1,35 @@
-/* External CSS for SafeCampuAI website */
-
+/*Updated Landing page or UI*/
 /* Customize navbar background color */
 /* style.css */
 
+
 body {
+  /* background-color: #222831; */
+  background-image:url(/images/bg1.png);
+  background-repeat: no-repeat;  /* Prevent image repetition */
+  background-attachment: fixed;
+  background-size: cover;  /* Or other desired fitting behavior */
+  background-position: center;
+  object-fit: contain;
   
-    background-image:url(/images/background1.webp)
 }
 
 .navbar {
-    background-color: #09253d !important;
+  background-color: #486b9f !important;
 }
 
 /* Style modal title */
+.landingHeader{
+  text-align: center;
+  font-size: 130px;
+  font-weight: 500;
+  position: relative;
+  top: 100px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 80px;
+  margin-bottom: 200px;
+  color: #204461;
+}
 .modal-title {
     font-size: 1.5rem;
     font-weight: bold;
@@ -23,10 +40,34 @@ body {
     border-radius: 20px !important;
 }
 
+/* Target any element with a placeholder attribute */
+input[placeholder]::placeholder,
+textarea[placeholder]::placeholder {
+  color: #204461;
+}
+
+
 /* Style form select dropdown */
 .select {
     border-radius: 20px !
 }
+
+.labelFont {
+  color: #265073 !important;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px !important;
+}
+
+.formHeader{
+  font-size: 70px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  background: linear-gradient(to top, #3E3232, #7E6363);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
 
 /*
     .form-group,
@@ -75,9 +116,9 @@ body {
 
 /* Submit button style */
 .btn {
-  background-color: rgb(18, 109, 112); /* Button color */
+  background-color: #265073; /* Button color */
   border: none; /* Remove button border */
-  padding: 10px 20px; /* Add padding to the button */
+  padding: 5px 15px; /* Add padding to the button */
   font-weight: bolder;
   width: 20;
   color: #fff; /* Text color */
@@ -90,21 +131,17 @@ body {
 
 
 
-
-
-
-
 /*Modal css*/
 /* Style modal header */
 .modal-header {
-  background-color: #007bff; /* Header background color */
-  color: #110f0f; /* Header text color */
+  background-color: #486b9f; /* Header background color */
+  color: #fff; /* Header text color */
 }
 
 /* Style modal body */
 .modal-body {
-  background-color: #000000; /* Body background color */
-  color: #000000; /* Body text color */
+  background-color: white; /* Body background color */
+  color: #fffdfd; /* Body text color */
 }
 
 /* Style modal buttons */
@@ -112,6 +149,12 @@ body {
   background-color: #03192f; /* Button background color */
   border-color: #00172f; /* Button border color */
   color: #151414; /* Button text color */
+}
+
+.modalText{
+  color: black !important;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Hover effect for modal buttons */
@@ -123,6 +166,39 @@ body {
 /* Style form input fields in the login modal */
 #loginModal .form-control {
   color: #000000; /* Black font color */
+}
+
+.navbar-nav.mr-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.navbar-nav .nav-link {
+  font-family: "Poppins", sans-serif;
+  font-size: 23px;
+}
+
+.navbar-brand{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  padding-left: 30px;
+  font-size: xx-large;
+}
+
+.btn-outline-light{
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.navbar{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.btn-success{
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
 
