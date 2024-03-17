@@ -5,7 +5,7 @@ import cv2
 
 app = Flask(__name__)
 
-cameras={}
+cameras=dict()
 
 from models.fire import fire_detection
 from models.people import people_detection
@@ -87,11 +87,15 @@ def index():
 
 @app.route('/dash')
 def dash():
-    return render_template('dash.html')
+    return render_template('dash.html',cameras=cameras)
 
 @app.route('/login')
-def login():
+def logout():
     return render_template('login.html')
+
+@app.route('/logout')
+def login():
+    return redirect('/')
 
 
 @app.route('/login_get',methods=["GET","POST"])
@@ -133,10 +137,13 @@ def add_camera():
         fire_bool = 'fire' in request.form
         smoking_bool = 'smoking' in request.form
         region_str=request.form['region']
-
-        x1,y1,x2,y2,x3,y3,x4,y4=region_str.strip().split(',')
-
-        region=[[x1,y1],[x2,y2],[x3,y3],[x4,y4]]
+        
+        if len(region_str.strip().split(','))==8:
+            x1,y1,x2,y2,x3,y3,x4,y4=region_str.strip().split(',')
+            region=[[x1,y1],[x2,y2],[x3,y3],[x4,y4]]
+        else:
+            region=region_default
+        camid=str(camid)
         cameras[camid]= {
             "people_bool" : people_bool,
             "vehicle_bool":vehicle_bool,
@@ -145,13 +152,22 @@ def add_camera():
             "region":region
         }
 
+        print(cameras[camid])
+
     return redirect('/dash')
 
 
-@app.route('/video_feed')
-def video_feed():
-    return Response(process_frames(camid='C:\My_Stuff\AA_Studio\Data Dazzlers\Data-Dazzlers\model_testing\\fire_video_input.mp4',
-    region=region_default,flag_fire=True), mimetype='multipart/x-mixed-replace; boundary=frame')
+@app.route('/video_feed/<int:cam_id>')
+def video_feed(cam_id):
+    cam_id=str(cam_id)
+    fire_flag=cameras[cam_id]["fire_bool"]
+    people_flag=cameras[cam_id]["people_bool"]
+    vehicle_flag=cameras[cam_id]["vehicle_bool"]
+    smoking_flag=cameras[cam_id]["smoking_bool"]
+    region_pass=cameras[cam_id]["region"]
+
+    return Response(process_frames(camid=cam_id,region=region_pass,flag_people=people_flag,flag_vehicle=vehicle_flag,
+                                   flag_fire=fire_flag,flag_smoke=smoking_flag), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 

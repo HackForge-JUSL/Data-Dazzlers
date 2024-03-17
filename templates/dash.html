@@ -37,16 +37,19 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
-                    <i class="lni lni-exit"></i>
-                    <span>Logout</span>
-                </a>
+                <form class="form-inline" action="/logout">
+                    <button type="submit" class="btn btn-outline-light">Logout</button>
+                </form>
             </div>
         </aside>
         <div class="main p-3">
             <div class="text-center">
-                <h1>Your Dashboard</h1>
-                <img src="{{ url_for('video_feed') }}" width="650" height="400">
+                <div id="live-feeds">
+                    {% for cam_id, camera in cameras.items() %}
+                        <h2>Camera {{ cam_id }}</h2>
+                        <iframe src="/video_feed/{{ cam_id }}" width="640" height="360"></iframe>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
