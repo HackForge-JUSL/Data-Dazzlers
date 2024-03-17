@@ -105,19 +105,19 @@
       <h3 class="text-center mb-4"><span class="formHeader">Raise Your Complain</span></h3>
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <form action="/complain_get",id="complain_form",method="POST">
+          <form action="/complain_get" id="complain_form" method="POST">
             <div class="form-group">
               <label for="fullName" class="labelFont">Full Name</label>
-              <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+              <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name">
             </div>
             <div class="form-group">
               <label for="email" class="labelFont">Email address</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+              <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
                 placeholder="Enter email">
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect1" class="labelFont">Select the alert!</label>
-              <select class="form-control" id="exampleFormControlSelect1">
+              <select class="form-control" id="exampleFormControlSelect1" name="exampleFormControlSelect1">
                 <option>Report an Alert</option>
                 <option>Normal Complaint</option>
                 <option>Harassment reporting</option>
@@ -126,7 +126,7 @@
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1" class="labelFont">Elaborate your Concern-</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="exampleFormControlTextarea1"
                 placeholder="Share your Concern"></textarea>
             </div>
 

@@ -87,7 +87,7 @@ def index():
 @app.route('/complain_get', methods=['GET','POST'])
 def add_camera():
     print("in function")
-    if (request.method== 'POST'):
+    if (request.method == 'POST'):
         fullName = request.form['fullName']
         email = request.form['email']
         alert = request.form['exampleFormControlSelect1']
