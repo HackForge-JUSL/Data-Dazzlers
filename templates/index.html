@@ -105,7 +105,7 @@
       <h3 class="text-center mb-4"><span class="formHeader">Raise Your Complain</span></h3>
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <form>
+          <form action="/complain_get",id="complain_form",method="POST">
             <div class="form-group">
               <label for="fullName" class="labelFont">Full Name</label>
               <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
@@ -126,11 +126,11 @@
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1" class="labelFont">Elaborate your Concern-</label>
-              <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
                 placeholder="Share your Concern"></textarea>
             </div>
 
-            <div class="input-group mb-3">
+            <!--div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupFileAddon01">Upload file</span>
               </div>
@@ -139,9 +139,10 @@
                   aria-describedby="inputGroupFileAddon01">
                 <label class="custom-file-label" for="inputGroupFile01">Upload Supporting file</label>
               </div>
-            </div>
+            </div!-->
 
-            <button type="submit" class="btn btn-success">Submit</button>
+            <!--button type="submit" class="btn btn-success">Submit</button!-->
+            <input type="submit" class= "btn btn-success" value="SUBMIT">
           </form>
         </div>
       </div>

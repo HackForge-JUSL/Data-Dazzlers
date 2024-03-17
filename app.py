@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response,request,redirect
 import cv2
 
 app = Flask(__name__)
@@ -83,6 +83,22 @@ def process_frames(camid,region,flag_people=False,flag_vehicle=False,flag_fire=F
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/complain_get', methods=['GET','POST'])
+def add_camera():
+    print("in function")
+    if (request.method== 'POST'):
+        fullName = request.form['fullName']
+        email = request.form['email']
+        alert = request.form['exampleFormControlSelect1']
+        body = request.form['exampleFormControlTextarea1']
+
+        print(fullName,email,alert,body)
+
+    return redirect('/')
+
+
+
 
 @app.route('/video_feed')
 def video_feed():
